@@ -7,6 +7,7 @@ import { trpc } from "@/trpc/client";
 
 import { Button } from "@/components/ui/button";
 import { ResponsiveModal } from "@/components/responsive-modal";
+import { StudioUploader } from "./studio-uploader";
 
 export const StudioUploadModal = () => {
   const utils = trpc.useUtils();
@@ -23,10 +24,14 @@ export const StudioUploadModal = () => {
     <>
       <ResponsiveModal
         title="Upload a video"
-        open={!!create.data}
+        open={!!create.data?.url}
         onOpenChange={() => create.reset()}
       >
-        <p>This will be an uploader</p>
+        {create.data?.url ? (
+          <StudioUploader endpoint={create.data.url} onSuccess={() => {}} />
+        ) : (
+          <Loader2Icon />
+        )}
       </ResponsiveModal>
       <Button
         variant="secondary"
