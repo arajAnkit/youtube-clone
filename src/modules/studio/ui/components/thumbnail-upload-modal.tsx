@@ -1,6 +1,7 @@
+import { trpc } from "@/trpc/client";
+
 import { UploadDropzone } from "@/lib/uploadthing";
 import { ResponsiveModal } from "@/components/responsive-modal";
-import { trpc } from "@/trpc/client";
 
 interface ThumbnailUploadModalProps {
   videoId: string;

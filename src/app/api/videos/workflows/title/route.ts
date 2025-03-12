@@ -45,7 +45,7 @@ export const { POST } = serve(async (context) => {
   });
 
   const { body } = await context.api.openai.call("generate-title", {
-    baseURL: "https://api.deepseek.com",
+    baseURL: "https://api.deepseek.com/v1",
     token: process.env.DEEPSEEK_API_KEY!,
     operation: "chat.completions.create",
     body: {
