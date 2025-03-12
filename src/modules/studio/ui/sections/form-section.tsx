@@ -79,60 +79,61 @@ export const FormSection = ({ videoId }: FormSectionProps) => {
 
 const FormSectionSkeleton = () => {
   return (
-    <div>
+    <div className="p-6 bg-gray-100 rounded-lg">
       <div className="flex items-center justify-between mb-6">
         <div className="space-y-2">
-          <Skeleton className="h-7 w-32" />
-          <Skeleton className="h-4 w-40" />
+          <Skeleton className="h-7 w-32 bg-gray-300 rounded-md" />
+          <Skeleton className="h-4 w-40 bg-gray-300 rounded-md" />
         </div>
-        <Skeleton className="h-8 w-24" />
+        <Skeleton className="h-8 w-24 bg-gray-400 rounded-md" />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
         <div className="space-y-8 lg:col-span-3">
           <div className="space-y-2">
-            <Skeleton className="h-5 w-16" />
-            <Skeleton className="h-10 w-full" />
+            <Skeleton className="h-5 w-16 bg-gray-300 rounded-sm" />
+            <Skeleton className="h-10 w-full bg-gray-300 rounded-md" />
           </div>
           <div className="space-y-2">
-            <Skeleton className="h-5 w-24" />
-            <Skeleton className="h-[220px] w-full" />
+            <Skeleton className="h-5 w-24 bg-gray-300 rounded-sm" />
+            <Skeleton className="h-[220px] w-full bg-gray-200 rounded-md" />
           </div>
           <div className="space-y-2">
-            <Skeleton className="h-5 w-20" />
-            <Skeleton className="h-[84px] w-[153px]" />
+            <Skeleton className="h-5 w-20 bg-gray-300 rounded-sm" />
+            <Skeleton className="h-[84px] w-[153px] bg-gray-200 rounded-md" />
           </div>
           <div className="space-y-2">
-            <Skeleton className="h-5 w-20" />
-            <Skeleton className="h-10 w-full" />
+            <Skeleton className="h-5 w-20 bg-gray-300 rounded-sm" />
+            <Skeleton className="h-10 w-full bg-gray-300 rounded-md" />
           </div>
         </div>
         <div className="flex flex-col gap-y-8 lg:col-span-2">
-          <div className="flex flex-col gap-4 bg-[#F9F9F9] rounded-xl overflow-hidden">
-            <Skeleton className="aspect-video" />
+          <div className="flex flex-col gap-4 bg-gray-200 rounded-xl overflow-hidden">
+            <Skeleton className="aspect-video bg-gray-300" />
             <div className="px-4 py-4 space-y-6">
               <div className="space-y-2">
-                <Skeleton className="h-4 w-24" />
-                <Skeleton className="h-5 w-full" />
+                <Skeleton className="h-4 w-24 bg-gray-300 rounded-md" />
+                <Skeleton className="h-5 w-full bg-gray-200 rounded-md" />
               </div>
               <div className="space-y-2">
-                <Skeleton className="h-4 w-24" />
-                <Skeleton className="h-5 w-full" />
+                <Skeleton className="h-4 w-24 bg-gray-300 rounded-md" />
+                <Skeleton className="h-5 w-full bg-gray-200 rounded-md" />
               </div>
               <div className="space-y-2">
-                <Skeleton className="h-4 w-24" />
-                <Skeleton className="h-5 w-full" />
+                <Skeleton className="h-4 w-24 bg-gray-300 rounded-md" />
+                <Skeleton className="h-5 w-full bg-gray-200 rounded-md" />
               </div>
             </div>
           </div>
           <div className="space-y-2">
-            <Skeleton className="h-5 w-20" />
-            <Skeleton className="h-10 w-full" />
+            <Skeleton className="h-5 w-20 bg-gray-300 rounded-sm" />
+            <Skeleton className="h-10 w-full bg-gray-300 rounded-md" />
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 
 const FormSectionSuspense = ({ videoId }: FormSectionProps) => {
   const router = useRouter();
