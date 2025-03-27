@@ -31,6 +31,7 @@ export const users = pgTable(
 
 export const userRelations = relations(users, ({ many }) => ({
   videos: many(videos),
+  videoViews: many(videoViews),
 }));
 
 export const categories = pgTable(
@@ -84,7 +85,7 @@ export const videoInsertSchema = createInsertSchema(videos);
 export const videoUpdateSchema = createUpdateSchema(videos);
 export const videoSelectSchema = createSelectSchema(videos);
 
-export const videoRelations = relations(videos, ({ one }) => ({
+export const videoRelations = relations(videos, ({ one, many }) => ({
   user: one(users, {
     fields: [videos.userId],
     references: [users.id],
@@ -93,6 +94,7 @@ export const videoRelations = relations(videos, ({ one }) => ({
     fields: [videos.categoryId],
     references: [categories.id],
   }),
+  views: many(videoViews),
 }));
 
 export const videoViews = pgTable(
