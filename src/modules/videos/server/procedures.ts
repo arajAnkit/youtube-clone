@@ -73,7 +73,7 @@ export const videosRouter = createTRPCRouter({
               eq(videoReactions.type, "dislike")
             )
           ),
-          viewerReaction: videoReactions.type,
+          viewerReaction: viewerReactions.type,
         })
         .from(videos)
         .innerJoin(users, eq(videos.userId, users.id))
