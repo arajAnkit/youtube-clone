@@ -5,12 +5,35 @@ import { VideoGetOneOutput } from "../../types";
 
 import { VideoDescription } from "./video-description";
 import { VideoMenu } from "./video-menu";
-import { VideoOwner } from "./video-owner";
+import { VideoOwner, VideoOwnerSkeleton } from "./video-owner";
 import { VideoReactions } from "./video-reactions";
+
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface VideoTopRowProps {
   video: VideoGetOneOutput;
 }
+
+export const VideoTopRowSkeleton = () => {
+  return (
+    <div className="flex flex-col gap-4 mt-4">
+      <Skeleton className="h-6 w-3/4" />
+
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+        <VideoOwnerSkeleton />
+
+        <div className="flex overflow-x-auto sm:min-w-[calc(50%-6px)] sm:justify-end sm:overflow-visible pb-2 -mb-2 sm:pb-0 sm:mb-0 gap-2">
+          <Skeleton className="h-6 w-12" />
+          <Skeleton className="h-6 w-12" />
+        </div>
+      </div>
+
+      <Skeleton className="h-4 w-full" />
+      <Skeleton className="h-4 w-full" />
+      <Skeleton className="h-4 w-1/2" />
+    </div>
+  );
+};
 
 export const VideoTopRow = ({ video }: VideoTopRowProps) => {
   const compactViews = useMemo(() => {

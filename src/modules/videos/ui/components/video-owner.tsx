@@ -5,6 +5,8 @@ import { useAuth } from "@clerk/nextjs";
 import { VideoGetOneOutput } from "../../types";
 
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+
 
 import { UserAvatar } from "@/components/user-avatar";
 
@@ -16,7 +18,23 @@ interface VideoOwnerProps {
   user: VideoGetOneOutput["user"];
   videoId: string;
 }
+export const VideoOwnerSkeleton = () => {
+  return (
+    <div className="flex items-center sm:items-start justify-between sm:justify-between gap-3 min-w-0">
+      {/* User Avatar and Info Skeleton */}
+      <div className="flex items-center gap-3 min-w-0">
+        <Skeleton className="h-12 w-12 rounded-full" /> {/* Avatar Skeleton */}
+        <div className="flex flex-col gap-1 min-w-0">
+          <Skeleton className="h-4 w-32" /> {/* User Name Skeleton */}
+          <Skeleton className="h-3 w-20" /> {/* Subscriber Count Skeleton */}
+        </div>
+      </div>
 
+      {/* Button/Subscription Skeleton */}
+      <Skeleton className="h-8 w-24 rounded-full flex-none" />
+    </div>
+  );
+};
 export const VideoOwner = ({ user, videoId }: VideoOwnerProps) => {
   const { userId: clerkUserId, isLoaded } = useAuth();
 
